@@ -16,3 +16,26 @@ spec:
   - name: my-container
     image: my-image
 ```
+---
+## Replication Controller
+- Ensures a specified number of pod replicas are running at all times.
+- If a pod fails, the controller creates a new one to maintain the desired state.
+```yaml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: my-rc
+spec:
+  replicas: 3
+  selector:
+    app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-container
+        image: my-image
+```
+---
